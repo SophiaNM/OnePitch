@@ -12,7 +12,7 @@ app = create_app('development')
 # app = create_app('production')
 
 
-# Create manager instance 
+# Create manager instance
 manager = Manager(app)
 
 # Create migrate instance
