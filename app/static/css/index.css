@@ -27,3 +27,20 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* Style for the pitches section */
+
+
+/* Registration and Login Form */
+.pitchit-form{
+    box-shadow: 2px 4px 12px 2px #dcdcdc;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #fff;
+}
+.pitchit-form h3{
+    display: flex;
+    justify-content: center;
+}
+input#submit.btn.btn-primary{
+    margin-top: 10px;
+}
