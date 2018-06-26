@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block content %}
+<div class="container">
+    <div class="col-md-4">
+        {{ wtf.quick_form(pitch_form)}}
+    </div>
+</div>
+
+
+
+{% for pitch in all_pitches%}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="media-body">
+              <div class="pitch-metadata">
+                <a class="mr-2" href="#">{{pitch.user.username}}</a>
+                <small class="text-muted">{{pitch.user.posted}}</small>
+              </div>
+              <h2><a class="pitch-title" href="#">{{picth.pitch_category}}</a></h2>
+              <p class="pitch-content">{{pitch.pitch_desc}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
