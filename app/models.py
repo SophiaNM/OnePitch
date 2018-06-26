@@ -13,15 +13,15 @@ class User(UserMixin,db.Model):
     __tablename__='users'
 
     id = db.Column(db.Integer,primary_key = True)
-    username = db.Column(db.String(255))
+    username = db.Column(db.String(255),index = True)
     email = db.Column(db.String(255),index = True)
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     password_hash = db.Column(db.String(255))
-    #
-    # reviews = db.relationship('Review',backref = 'user',lazy = "dynamic")
-    #
+
+    pitches = db.relationship('Pitch',backref = 'user',lazy = "dynamic")
+
     @property
     def password(self):
         raise AttributeError('You Cannot read the password attribute')
@@ -48,3 +48,42 @@ class Role(db.Model):
 
     def __repr__(self):
         return f'User {self.name}'
+
+
+
+
+
+class Pitch(db.Model):
+    __tablename__= 'pitches'
+
+    id = db.Column(db.Integer,primary_key = True)
+    pitch_title = db.Column(db.String())
+    content = db.Column(db.String())
+    category = db.Column(db.String())
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+
+    author = db.Column(db.Integer,db.ForeignKey("users.id"))
+
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
+
+    @classmethod
+    def get_pitch(cls,id):
+        pitches = Pitch.query.filter_by(id=id).all()
+        return pitches
+
+    @classmethod
+    def get_all_pitches(cls):
+        pitches = Pitch.query.order_by('-id').all()
+        return pitches
+
+    # @classmethod
+    # def get_category(cls,cat):
+    #     category = Pitch.query.filter_by(pitch_category=cat).order_by('-id').all()
+    #     return category
+
+
+    def __repr__(self):
+        return f'Pitch {self.pitch_desc}'
