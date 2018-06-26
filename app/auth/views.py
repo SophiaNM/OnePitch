@@ -4,7 +4,7 @@ from ..models import User
 from .. import db
 from flask_login import login_user,logout_user,login_required
 from .forms import LoginForm,RegistrationForm
-# from ..email import mail_message
+from ..email import mail_message
 
 
 
@@ -30,17 +30,19 @@ def logout():
     flash('You have been successfully logged out')
     return redirect(url_for("main.index"))
 
+
 @auth.route('/register',methods = ["GET","POST"])
 def register():
-
-    '''
-    View root page function that returns the index page and its data
-    '''
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(email = form.email.data, username = form.username.data,password = form.password.data)
+        user = User (email = form.email.data, username = form.username.data, password = form.password.data)
+        print (user)
         db.session.add(user)
         db.session.commit()
+        print (user)
+
+        mail_message("Welcome to One Min Pitch","email/welcome_user",user.email,user=user)
         return redirect(url_for('auth.login'))
-        title = "New Account | One Min Pitch"
-    return render_template('auth/register.html',registration_form = form)
+
+    title = "New Account | One Min Pitch"
+    return render_template('auth/register.html',registration_form = form, title=title)
