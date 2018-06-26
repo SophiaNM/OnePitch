@@ -1,0 +1,25 @@
+{% macro display(all_pitches)%}
+
+
+    {% if all_pitches%}
+        {% for pitch in all_pitches%}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="media-body">
+                      <div class="pitch-metadata">
+                        <a class="mr-2" href="#">{{pitch.user.username}}</a>
+                        <small class="text-muted">Posted on {{pitch.posted.strftime('%d/%m/%Y')}}</small>
+                      </div>
+                      <h2><a class="pitch-title" href="#">{{pitch.pitch_title}}</a></h2>
+                      <p class="pitch-content">{{pitch.content}}</p>
+                      <p>{{pitch.category}}</p>
+                      <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+    {% endif %}
+{% endmacro %}
