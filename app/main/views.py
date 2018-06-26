@@ -1,21 +1,27 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from .forms import UpdateProfile
-from ..models import User
+from .forms import UpdateProfile, PitchForm
+from ..models import User, Role, Pitch
 from flask_login import login_required, current_user
 from .. import db, photos
 
 # Views
-@main.route('/')
+@main.route('/',methods = ['GET', 'POST'])
 def index():
 
     '''
     View root page function that returns the index page and its data
     '''
+    interviewpitches = Pitch.query.filter_by(category="Interview-Pitch").order_by(Pitch.posted.desc()).all()
+    productpitches = Pitch.query.filter_by(category="Product-Pitch").order_by(Pitch.posted.desc()).all()
+    promotionpitches = Pitch.query.filter_by(category="Promotion-Pitch").order_by(Pitch.posted.desc()).all()
+    businesspitches = Pitch.query.filter_by(category="Business-Pitch").order_by(Pitch.posted.desc()).all()
+    # all_pitches = Pitch.get_all_pitches()
+    pitch = Pitch.get_all_pitches()
+    # print(all_pitches)
 
-    title = 'Home'
-
-    return render_template('index.html', title = title )
+    title = 'Home | One Min Pitch'
+    return render_template('index.html', title = title, pitch = pitch, interviewpitches = interviewpitches, productpitches = productpitches, promotionpitches = promotionpitches, businesspitches = businesspitches)
 
 
 
@@ -59,12 +65,6 @@ def update_pic(uname):
     return redirect(url_for('main.profile', uname=uname))
 
 
-
-
-
-
-
-
 @main.route('/comment')
 @login_required
 def comment():
@@ -76,3 +76,53 @@ def comment():
     title = 'Home'
 
     return render_template('comment.html', title = title )
+
+
+
+
+
+@main.route('/home', methods = ['GET', 'POST'])
+@login_required
+def home():
+    # pitch_form = PitchForm()
+    # pitch = get_pitch(id)
+    # my_pitch = Pitch.query.get(id)
+
+    # if pitch_form.validate_on_submit():
+    #     pitch = pitch_form.pitch.data
+    #     category = pitch_form.my_category.data
+    #
+    #     new_pitch = Pitch(pitch_desc=pitch, pitch_category = category, user = current_user)
+    #     new_pitch.save_pitch()
+    #
+    #     return redirect(url_for('main.home'))
+    # user = User.query.filter_by()
+    interviewpitches = Pitch.query.filter_by(category="Interview-Pitch").order_by(Pitch.posted.desc()).all()
+    productpitches = Pitch.query.filter_by(category="Product-Pitch").order_by(Pitch.posted.desc()).all()
+    promotionpitches = Pitch.query.filter_by(category="Promotion-Pitch").order_by(Pitch.posted.desc()).all()
+    businesspitches = Pitch.query.filter_by(category="Business-Pitch").order_by(Pitch.posted.desc()).all()
+    # all_pitches = Pitch.get_all_pitches()
+    pitch = Pitch.get_all_pitches()
+    # print(all_pitches)
+
+    title = 'Home | One Min Pitch'
+    return render_template('home.html', title = title, pitch = pitch, interviewpitches = interviewpitches, productpitches = productpitches, promotionpitches = promotionpitches, businesspitches = businesspitches)
+
+
+@main.route('/pitch/new',methods = ['GET','POST'])
+@login_required
+def pitch():
+    pitch_form = PitchForm()
+
+    if pitch_form.validate_on_submit():
+        content = pitch_form.content.data
+        category = pitch_form.category.data
+        pitch_title = pitch_form.pitch_title.data
+
+        new_pitch = Pitch(pitch_title=pitch_title, content=content, category = category, user = current_user)
+        new_pitch.save_pitch()
+
+        return redirect(url_for('main.index'))
+
+    title = 'New Pitch | One Minute Pitch'
+    return render_template('pitch.html', title = title, pitch_form = pitch_form,)
