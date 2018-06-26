@@ -15,7 +15,7 @@ class PitchTest(unittest.TestCase):
         '''
 
         self.user_Sophy = User(username = 'Sophy', password = 'potato', email = 'sophy@ms.com')
-        self.new_pitch = Pitch(id=12345,title='First Pitch',content='Awesome pitch for stuff',category='Elevator',author = self.user_Sophy)
+        self.new_pitch = Pitch(id=12345,pitch_title="First Pitch", content='Awesome pitch for stuff',category='Interview Pitch',author = self.user_Sophy)
 
     def tearDown(self):
         Pitch.query.delete()
@@ -23,9 +23,9 @@ class PitchTest(unittest.TestCase):
 
     def test_check_instance_variables(self):
         self.assertEquals(self.new_pitch.id,12345)
-        self.assertEquals(self.new_pitch.title,'First Pitch')
+        self.assertEquals(self.new_pitch.pitch_title,'First Pitch')
         self.assertEquals(self.new_pitch.content,'Awesome pitch for stuff')
-        self.assertEquals(self.new_pitch.category,"Elevator")
+        self.assertEquals(self.new_pitch.category,"Interview Pitch")
         self.assertEquals(self.new_pitch.author,self.user_Sophy)
 
     def test_save_pitch(self):
