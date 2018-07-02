@@ -42,19 +42,19 @@
                 <tbody>
                     <tr>
                         <td>Pitches</td>
-                        <td>{{pitches_no|length}}</td>
+                        <td>{{user.pitches.count()}}</td>
                     </tr>
                     <tr>
                         <td>Comments</td>
-                        <td>{{comments_no|length}}</td>
+                        <td>{{user.comments.count()}}</td>
                     </tr>
                     <tr>
                         <td>Pitches Liked</td>
-                        <td>{{likes_no|length}}</td>
+                        <td>{{user.likes.count()}}</td>
                     </tr>
                     <tr>
                         <td>Pitches Disliked</td>
-                        <td>{{dislikes_no|length}}</td>
+                        <td>{{user.dislikes.count()}}</td>
                     </tr>
                 </tbody>
             </table>
