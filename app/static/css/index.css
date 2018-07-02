@@ -210,6 +210,11 @@ input#submit.btn.btn-primary{
     margin-top: 10px;
 }
 
+/* Comments SEction */
+div.something{
+    margin-left: 20px;
+
+}
 
 img.img-thumbnail.rounded-circle.comment{
     height: 80px;
