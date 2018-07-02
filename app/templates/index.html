@@ -5,18 +5,21 @@
 
     <title> {{ title }} </title>
 
-    <div class="container">
-
-        <h1>Home Page</h1>
+    <div class="landing-page">
 
     </div>
 
 
-    <div class="container">
+
+
+    <div class="container wrapper">
 
 
 
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-tabs nav-tabs-right" id="myTab" role="tablist">
+            <span class="inline heading">
+                <h3>One Minute Pitch</h3>
+            </span>
           <li class="nav-item">
             <a class="nav-link active" id="interview-tab" data-toggle="tab" href="#interview" role="tab" aria-controls="interview" aria-selected="true">Interview</a>
           </li>
@@ -34,11 +37,35 @@
           <div class="tab-pane fade show active" id="interview" role="tabpanel" aria-labelledby="interview-tab">
 
               <section>
-                  <h3>Interview</h3>
+                 <div class="intro">
+                      <div class="pl-heroleft feature content ">
+                        <div id="">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="img-responsive thumbnail interview" src="" alt="Interview Pitches"></div>
+                                </div>
+                                <div class="block col-md-4">
+                                    <h3 class="kicker ga-click">Interview Pitch</h3>
+                                    <p>Take a minute to provide an interview pitch that will land you your dream job. Read and comment on other pitches as well.</p>
+                                    <div class="byline">
+                                            <small class="text-muted">Posted by Admin</small>
+                                            <br>
+                                            <small class="text-muted">1 minute read</small>
+                                            <p class="post"><a href="/pitch/new"><i class="fas fa-plus"></i> Add a Pitch</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                    </div>
+                </div>
                   <div class="content" id="Interview">
+
                       <div class="tab-content">
                           <div class="Pitch">
                               {{macro.displayPitches(interviewpitches)}}
+
                           </div>
                       </div>
                   </div>
@@ -47,7 +74,28 @@
           <div class="tab-pane fade" id="product" role="tabpanel" aria-labelledby="product-tab">
 
               <section>
-                  <h3>Product</h3>
+                  <div class="intro">
+                       <div class="pl-heroleft feature content ">
+                         <div id="">
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     <div class="img-responsive thumbnail product" src="" alt="Product Pitches"></div>
+                                 </div>
+                                 <div class="block col-md-4">
+                                     <h3 class="kicker ga-click">Product Pitch</h3>
+                                     <p>Take a minute to provide an interview pitch that will land you your dream job. Read and comment on other pitches as well.</p>
+                                     <div class="byline">
+                                             <small class="text-muted">Posted by Admin</small>
+                                             <br>
+                                             <small class="text-muted">1 minute read</small>
+                                             <p class="post"><a href="/pitch/new"><i class="fas fa-plus"></i> Add a Pitch</a></p>
+                                     </div>
+                                 </div>
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
                   <div class="content" id="Product">
                       <div class="tab-content">
                           <div class="Pitch">
@@ -60,7 +108,28 @@
           <div class="tab-pane fade" id="promotion" role="tabpanel" aria-labelledby="promotion-tab">
 
               <section>
-                  <h3>Promotion</h3>
+                  <div class="intro">
+                       <div class="pl-heroleft feature content ">
+                         <div id="">
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     <div class="img-responsive thumbnail promotion" src="" alt="Promotion Pitches"></div>
+                                 </div>
+                                 <div class="block col-md-4">
+                                     <h3 class="kicker ga-click">Promotion Pitch</h3>
+                                     <p>Take a minute to provide an interview pitch that will land you your dream job. Read and comment on other pitches as well.</p>
+                                     <div class="byline">
+                                             <small class="text-muted">Posted by Admin</small>
+                                             <br>
+                                             <small class="text-muted">1 minute read</small>
+                                             <p class="post"><a href="/pitch/new"><i class="fas fa-plus"></i> Add a Pitch</a></p>
+                                     </div>
+                                 </div>
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
                   <div class="content" id="Promotion">
                       <div class="tab-content">
                           <div class="Pitch">
@@ -70,10 +139,33 @@
                   </div>
               </section>
           </div>
+
+
           <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
 
               <section>
-                  <h3>Business</h3>
+                  <div class="intro">
+                       <div class="pl-heroleft feature content ">
+                         <div id="">
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     <div class="img-responsive thumbnail business" src="" alt="Business Pitches"></div>
+                                 </div>
+                                 <div class="block col-md-4">
+                                     <h3 class="kicker ga-click">Business Pitch</h3>
+                                     <p>Take a minute to provide an interview pitch that will land you your dream job. Read and comment on other pitches as well.</p>
+                                     <div class="byline">
+                                             <small class="text-muted">Posted by Admin</small>
+                                             <br>
+                                             <small class="text-muted">1 minute read</small>
+                                             <p class="post"><a href="/pitch/new"><i class="fas fa-plus"></i> Add a Pitch</a></p>
+                                     </div>
+                                 </div>
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
                   <div class="content" id="Business">
                       <div class="tab-content">
                           <div class="Pitch">
@@ -84,7 +176,6 @@
               </section>
           </div>
         </div>
-
     </div>
 
 
