@@ -1,5 +1,5 @@
 # One Miute Pitch
-This is the fifth Independent project for Moringa Core, June 28th 2018.
+This is the fifth Independent project for Moringa Core, June 22nd 2018.
 
 ## Description
 
