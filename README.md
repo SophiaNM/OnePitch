@@ -54,6 +54,8 @@ View the complete site [here](https://oneminpitch-sophia.herokuapp.com/)
     5. Edit the start.sh file to prepare your environment variables:
         export DATABASE_URL='postgresql+psycopg2://username:password@localhost/pitchit'
         export SECRET_KEY='Your secret key'
+        export MAIL_USERNAME='Your email'
+        export MAIL_PASSWORD='Your email password'
     6. Run database migrations:
         python manage.py db init
         python manage.py db migrate -m "initial migration"
