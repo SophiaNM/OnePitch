@@ -48,7 +48,7 @@ View the complete site [here](https://oneminpitch-sophia.herokuapp.com/)
     2. Create a virtual environment:
         sudo apt-get install python3.6-venv
         python3.6 -m venv virtual source virtual/bin/activate
-    3. Read the  [specs file](specs.md) and  [requirements file](requirements.txt) files and Install all the requirements.
+    3. Read the specs and requirements files and Install all the requirements.
     4. Install dependancies that will create an environment for the app to run:
         pip3 install -r requirements
     5. Edit the start.sh file to prepare your environment variables:
